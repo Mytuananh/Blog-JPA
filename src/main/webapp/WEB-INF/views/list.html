@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <a th:href="@{/blog/create}">
+        Add new Blog
+    </a>
+</p>
+
+<div>
+    <p th:if="${message}">
+    <th th:text="${message}"></th>
+    </p>
+    <table border="1">
+        <tr>
+            <td>Tieu De Bai Viet</td>
+            <td>Noi Dung Bai Viet</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+        <tr th:each="blog: ${blogs}">
+            <td th:text="${blog.tittle}"></td>
+            <td th:text="${blog.content}"></td>
+            <td><a th:href="@{/blog/{id}/edit(id = ${blog.getId()})}">Edit</a></td>
+            <td><a th:href="@{/blog/{id}/delete(id = ${blog.getId()})}">Delete</a></td>
+        </tr>
+    </table>
+<!--    <p>-->
+<!--        <label>Tieu De Bai Viet</label>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label>-->
+<!--            <input type="text" th:field="*${blog.tittle}">-->
+<!--        </label>-->
+
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label>Noi Dung Bai Viet</label>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label>-->
+<!--            <input type="text" th:field="*{blog.content}">-->
+<!--        </label>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        <label>-->
+<!--            <a th:href="@{/blog/{id}/edit(id = ${blog.getId()})}">Edit</a>-->
+<!--        </label>-->
+<!--    </p>-->
+<!--    <p>-->
+<!--        -->
+<!--    </p>-->
+</div>
+
+</body>
+</html>
